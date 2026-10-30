@@ -64,7 +64,7 @@ def make_record(path, text, url):
     title = plain_text(str(meta.get('title') or (heading.group(1) if heading else Path(path).stem)))
     content = plain_text(body)
     summary = str(meta.get('description') or meta.get('summary') or content.removeprefix(title).strip()[:140] or '打开笔记查看内容。')
-    return {'title': title, 'summary': summary, 'category': Path(path).parts[1],
+    return {'title': title, 'summary': summary, 'category': {'Ideas': '思考'}.get(Path(path).parts[1], Path(path).parts[1]),
             'url': url, 'text': content, 'path': path}
 
 
@@ -81,7 +81,7 @@ def _nav_tree(paths, parent):
     result += pages
     order = {'Java': 0, 'LLM': 1, '中间件': 2, '数据库': 3, '408': 4, '软考': 5, 'Ideas': 6}
     for folder, members in sorted(folders.items(), key=lambda item: (order.get(item[0], 99), item[0])):
-        result.append({{'Rag': 'RAG', 'Mysql': 'MySQL'}.get(folder, folder): _nav_tree(members, Path(parent) / folder)})
+        result.append({{'Rag': 'RAG', 'Mysql': 'MySQL', 'Ideas': '思考'}.get(folder, folder): _nav_tree(members, Path(parent) / folder)})
     return result
 
 
@@ -93,7 +93,7 @@ def on_config(config):
             paths.append(rel)
     config['nav'] = [
         {'首页': 'index.md'}, {'笔记': _nav_tree(paths, Path('文章'))},
-        {'专题': '专题/index.md'}, {'思考': '文章/Ideas/index.md'}, {'关于': 'about.md'},
+        {'专题': '专题/index.md'}, {'关于': 'about.md'},
     ]
     return config
 

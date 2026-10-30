@@ -9,7 +9,7 @@ Java、数据库、中间件与大模型开发笔记。
 - [首页](index.md)：个人介绍、精选笔记与最近维护。
 - [笔记库](文章/index.md)：标题与正文搜索、领域筛选与分页。
 - [专题阅读](专题/index.md)：Java、RAG、Agent、Qwen 与 vLLM 阅读路线。
-- [个人思考](文章/Ideas/index.md)
+- [个人思考](文章/Ideas/index.md)：保留在笔记库分类中。
 - [关于](about.md)
 
 ## 本地预览
