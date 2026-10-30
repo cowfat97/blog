@@ -1,61 +1,50 @@
 # how 的博客
 
-Java 后端 & 大模型开发学习笔记。
+Java 后端与大模型开发的学习、实验与思考。
 
 线上阅读：[cowfat97.github.io/notes](https://cowfat97.github.io/notes/)
 
-## 文章
+## 内容入口
 
-学习笔记，涵盖 Java 后端、中间件、数据库、大模型、考研 408。
+- [首页](index.md)：个人介绍、精选笔记与最近维护。
+- [笔记库](文章/index.md)：标题与正文搜索、领域筛选与分页。
+- [专题阅读](专题/index.md)：Java、RAG、Agent、Qwen 与 vLLM 阅读路线。
+- [个人思考](文章/Ideas/index.md)
+- [关于](about.md)
 
-### Java
+## 本地预览
 
-- [Java 的特性](文章/Java/Java%20基础/Java%20的特性.md)
-- [HashMap 线程安全吗？](文章/Java/集合/HashMap%20线程安全吗？.md)
-- [List](文章/Java/集合/List.md)
-- [线程创建](文章/Java/多线程/线程创建.md)
-- [线程状态](文章/Java/多线程/线程状态.md)
-- [JVM 内存结构](文章/Java/JVM/JVM%20内存结构.md)
-- [Spring — IoC 的实现](文章/Java/框架/spring/Ioc%20的实现.md)
-- [MyBatis — 适配器模式](文章/Java/框架/mybatis/设计模式/适配器模式.md)
-- [Druid](文章/Java/工具/Druid.md)
-- [Swagger](文章/Java/工具/Swagger.md)
+```sh
+uv venv .venv
+uv pip install --python .venv/bin/python -r .mkdocs/requirements.txt
+.venv/bin/python -m unittest discover -s .mkdocs/tests -v
+.venv/bin/mkdocs serve -f .mkdocs/mkdocs.yml
+```
 
-### 中间件
+产物验证：`.venv/bin/python .mkdocs/verify_site.py .site`。
 
-- [Redis 集群模式](文章/中间件/Redis/Redis集群模式.md)
-- [Nginx 配置](文章/中间件/Nginx/Nginx%20配置.md)
-- [Docker](文章/中间件/Docker/)
-- [Elasticsearch](文章/中间件/Elasticsearch/)
-- [Kafka](文章/中间件/Kafka/)
-- [PostgreSQL](文章/中间件/PostgreSQL/)
+构建：`.venv/bin/mkdocs build -f .mkdocs/mkdocs.yml`，产物位于 `.site/`。
 
-### 数据库
+## 写作与发布
 
-- [索引](文章/数据库/Mysql/索引.md)
-- [数据库事务](文章/数据库/Mysql/数据库事务.md)
-- [数据库特性](文章/数据库/Mysql/数据库特性.md)
+文章继续放在 `文章/` 的原分类目录，图片放在 `Pic/`。构建时自动补全知识目录并生成浏览器全文索引，不修改源配置。不依赖后端搜索服务。
 
-### LLM
+可选元数据：
 
-- [深度学习](文章/LLM/深度学习/) — 大模型基础 / BERT / T5 / GPT / 序列标注
-- [RAG](文章/LLM/Rag/) — RAG 概述 / 文档处理 / 文档向量化
-- [Agent](文章/LLM/Agent/) — Agent / LangChain / MCP / A2A / 提示词工程
-- [知识图谱](文章/LLM/知识图谱/)
-- [微调](文章/LLM/微调/)
+```yaml
+---
+title: 文章标题
+summary: 一两句话说明这篇笔记解决什么问题。
+tags:
+  - Java
+draft: false
+---
+```
 
-### 408 考研
+`draft: true` 或 `published: false` 的页面不会进入发布文件、导航与搜索。没有可靠日期的旧笔记不补造发布日期；首页“最近维护”依据 Git 变更顺序生成。
 
-- [数据结构](文章/408/数据结构/)
-- [计算机组成原理](文章/408/计算机组成原理/)
-- [操作系统](文章/408/操作系统/)
-- [计算机网络](文章/408/计算机网络/)
+仅发布首页、关于、公众号、文章、专题及指定图片、CSS、JS 资源。内部说明、脚本、编辑器配置与环境变量不属于发布内容。不要把私人附件放入公开图片目录。
 
-## 软考
+推送 `main` 后，GitHub Actions 运行检查、构建并发布到现有 `gh-pages` 分支；PR 只检查与构建。原来的定时导航同步已移除，旧 `scripts/sync_nav.py` 命令转为构建检查。
 
-- [软件设计师备考](文章/软考/)
-
-## 笔记规范
-
-- 中文书写，Markdown 格式
-- 概念 + 实战示例，结构清晰便于复习
+实现与验证：[重构说明](.mkdocs/REFACTOR.md)。

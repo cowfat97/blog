@@ -1,35 +1,37 @@
-name: Deploy MkDocs
+name: Build and deploy notes
 
 on:
   push:
     branches: [main]
+  pull_request:
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: notes-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install pyyaml "mkdocs-material>=9.5,<10" "mkdocs>=1.6,<2"
-
-      - name: Auto-sync nav
-        run: python scripts/sync_nav.py
-
-      - name: Commit auto changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then
-            echo "No changes."
-          else
-            git add .mkdocs/mkdocs.yml
-            git commit -m "chore: 自动更新导航"
-            git push
-          fi
-
-      - run: mkdocs gh-deploy -f .mkdocs/mkdocs.yml --force
+      - run: pip install -r .mkdocs/requirements.txt
+      - name: Verify publication boundaries
+        run: python -m unittest discover -s .mkdocs/tests -v
+      - name: Build site
+        run: mkdocs build -f .mkdocs/mkdocs.yml
+      - name: Verify built pages and assets
+        run: python .mkdocs/verify_site.py .site
+      - name: Deploy to existing gh-pages branch
+        if: github.event_name != 'pull_request'
+        run: mkdocs gh-deploy -f .mkdocs/mkdocs.yml --force

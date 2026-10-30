@@ -14,3 +14,7 @@ AGENTS.md
 scripts/
 !scripts/sync_nav.py
 .obsidian/
+
+.site/
+
+.venv/

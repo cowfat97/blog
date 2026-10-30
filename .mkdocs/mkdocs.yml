@@ -1,18 +1,32 @@
 site_name: how 的博客
 site_description: Java 后端 & 大模型开发学习笔记
 site_author: cowfat97
-site_dir: ../../site
+site_dir: ../.site
 site_url: https://cowfat97.github.io/notes/
 docs_dir: ".."
 repo_url: https://github.com/cowfat97/notes
 repo_name: cowfat97/notes
 edit_uri: edit/main/
 
+hooks:
+  - hooks.py
+
+exclude_docs: |
+  README.md
+  CLAUDE.md
+  **/CLAUDE.md
+  AGENTS.md
+  **/AGENTS.md
+
+not_in_nav: |
+  公众号.md
+
 plugins:
   - search
 
 theme:
   name: material
+  font: false
   language: zh
   favicon: Pic/avatar.jpeg
   icon:
@@ -34,6 +48,8 @@ theme:
         icon: material/weather-sunny
         name: 切换至亮色模式
   features:
+    - navigation.tabs
+    - navigation.sections
     - navigation.instant
     - navigation.tracking
     - navigation.top
@@ -47,13 +63,17 @@ theme:
 
 extra_css:
   - _components/wechat.css
+  - _components/site.css
+
+extra_javascript:
+  - _components/catalog.js
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/cowfat97
       name: GitHub
-  copyright: Copyright &copy; 2025 cowfat97
+copyright: Copyright &copy; how · 学习、实验与思考
 
 markdown_extensions:
   - md_in_html
@@ -77,108 +97,10 @@ markdown_extensions:
   - toc
   - tables
 
+# 知识目录由 hooks.py 在构建时生成，不回写源文件。
 nav:
-  - Java:
-      - 基础: 文章/Java/Java 基础/Java 的特性.md
-      - JVM: 文章/Java/JVM/JVM 内存结构.md
-      - 多线程:
-          - 线程创建: 文章/Java/多线程/线程创建.md
-          - 线程状态: 文章/Java/多线程/线程状态.md
-          - 线程池队列: 文章/Java/多线程/线程池队列.md
-      - 事务:
-          - 事务控制: 文章/Java/事务/事务控制.md
-          - 多线程事务: 文章/Java/事务/多线程事务.md
-      - 集合:
-          - List: 文章/Java/集合/List.md
-          - HashMap 线程安全: 文章/Java/集合/HashMap 线程安全吗？.md
-      - 框架:
-          - Spring IoC: 文章/Java/框架/spring/Ioc 的实现.md
-          - MyBatis:
-              - 类型转换: 文章/Java/框架/mybatis/模块/类型转换/类型转换.md
-              - 适配器模式: 文章/Java/框架/mybatis/设计模式/适配器模式.md
-      - 工具:
-          - Druid: 文章/Java/工具/Druid.md
-          - JUnit: 文章/Java/工具/Junit.md
-          - Swagger: 文章/Java/工具/Swagger.md
-  - 中间件:
-      - Redis 集群: 文章/中间件/Redis/Redis集群模式.md
-      - Nginx 配置: 文章/中间件/Nginx/Nginx 配置.md
-      - Docker: 文章/中间件/Docker/Docker.md
-      - Elasticsearch: 文章/中间件/Elasticsearch/Elasticsearch.md
-      - Kafka: 文章/中间件/Kafka/Kafka.md
-      - Nacos: 文章/中间件/Nacos/Nacos.md
-      - PostgreSQL: 文章/中间件/PostgreSQL/PostgreSQL.md
-  - 数据库:
-      - 特性: 文章/数据库/Mysql/数据库特性.md
-      - 索引: 文章/数据库/Mysql/索引.md
-      - 事务: 文章/数据库/Mysql/数据库事务.md
-  - LLM:
-      - 深度学习:
-          - 大模型基础: 文章/LLM/深度学习/1.1_大模型基础.md
-          - 大模型架构基础: 文章/LLM/深度学习/1.2a_大模型架构基础.md
-          - BERT: 文章/LLM/深度学习/1.2b_BERT详细介绍.md
-          - T5: 文章/LLM/深度学习/1.2c_T5模型详细介绍.md
-          - GPT: 文章/LLM/深度学习/1.2d_GPT详细介绍.md
-          - 序列标注: 文章/LLM/深度学习/1.2e_序列标注任务.md
-      - RAG:
-          - RAG 概述: 文章/LLM/Rag/RAG.md
-          - 文档向量化: 文章/LLM/Rag/文档向量化.md
-          - Rag 评估: 文章/LLM/Rag/RAG 评估/Rag 评估.md
-          - 文档分块: 文章/LLM/Rag/文档分块.md
-          - 文档读取: 文章/LLM/Rag/文档读取.md
-      - Agent:
-          - Agent 概述: 文章/LLM/Agent/Agent.md
-          - AgentPatterns: 文章/LLM/Agent/AgentPatterns.md
-          - FunctionCall: 文章/LLM/Agent/FunctionCall.md
-          - MCP: 文章/LLM/Agent/MCP.md
-          - A2A: 文章/LLM/Agent/A2A.md
-          - LangChain: 文章/LLM/Agent/3.1_LangChain框架介绍.md
-          - LangChain 项目实战: 文章/LLM/Agent/3.2_LangChain项目实战.md
-          - LangChain 问答系统: 文章/LLM/Agent/3.3_企业员工手册问答系统.md
-          - 提示词工程: 文章/LLM/Agent/2.1_提示词工程.md
-          - 接入商用模型API: 文章/LLM/Agent/2.2_接入商用大模型API.md
-          - 推理参数: 文章/LLM/Agent/2.4_推理参数介绍.md
-          - NLP 金融文本分类: 文章/LLM/Agent/2.3a_金融文本分类.md
-          - NLP 金融文本抽取: 文章/LLM/Agent/2.3b_金融文本抽取.md
-          - NLP 金融文本匹配: 文章/LLM/Agent/2.3c_金融文本匹配.md
-          - LangGraph: 文章/LLM/Agent/Langgraph/LangGraph.md
-          - SmartVoyage: 文章/LLM/Agent/SmartVoyage.md
-          - Agent 评估: 文章/LLM/Agent/Agent 评估.md
-          - 意图识别: 文章/LLM/Agent/意图识别.md
-      - Qwen:
-          - Qwen3 学习路线: 文章/LLM/Qwen/1.1_Qwen3 学习路线.md
-          - Qwen 系列模型: 文章/LLM/Qwen/1.2_Qwen 系列模型.md
-          - Qwen3 快速上手: 文章/LLM/Qwen/1.3_Qwen3 快速上手.md
-          - Qwen3 参数汇总: 文章/LLM/Qwen/1.4_Qwen3 参数汇总.md
-          - 输出格式控制: 文章/LLM/Qwen/1.5_输出格式控制.md
-          - 实验:
-              - 采样温度实验: 文章/LLM/Qwen/实验/1.1_采样温度实验.md
-              - 对话控制实验: 文章/LLM/Qwen/实验/1.2_对话控制实验.md
-              - 格式控制实验: 文章/LLM/Qwen/实验/1.3_格式控制实验.md
-              - 记忆召回实验: 文章/LLM/Qwen/实验/1.4_记忆召回实验.md
-              - 记忆压缩实验: 文章/LLM/Qwen/实验/1.5_记忆压缩实验.md
-              - 2.1_vLLM改造实验: 文章/LLM/Qwen/实验/2.1_vLLM改造实验.md
-              - 2.2_vLLM并发吞吐实验: 文章/LLM/Qwen/实验/2.2_vLLM并发吞吐实验.md
-              - 2.3_vLLM长上下文实验: 文章/LLM/Qwen/实验/2.3_vLLM长上下文实验.md
-              - 2.4_vLLM结构化输出稳定性实验: 文章/LLM/Qwen/实验/2.4_vLLM结构化输出稳定性实验.md
-              - 1.6_上下文管理实验: 文章/LLM/Qwen/实验/1.6_上下文管理实验.md
-              - 2.10_vLLM任务模式路由与长链路升级实验: 文章/LLM/Qwen/实验/2.10_vLLM任务模式路由与长链路升级实验.md
-              - 2.3_vLLM长上下文性能实验: 文章/LLM/Qwen/实验/2.3_vLLM长上下文性能实验.md
-              - 2.5_vLLM上下文构建与语言实验: 文章/LLM/Qwen/实验/2.5_vLLM上下文构建与语言实验.md
-              - 2.6_vLLM工具沙箱实验: 文章/LLM/Qwen/实验/2.6_vLLM工具沙箱实验.md
-              - 2.7_vLLM_Checkpoint任务恢复实验: 文章/LLM/Qwen/实验/2.7_vLLM_Checkpoint任务恢复实验.md
-              - 2.8_vLLM统一工具输出与上下文预算实验: 文章/LLM/Qwen/实验/2.8_vLLM统一工具输出与上下文预算实验.md
-              - 2.9_vLLM记忆注入与上下文预算实验: 文章/LLM/Qwen/实验/2.9_vLLM记忆注入与上下文预算实验.md
-              - 3.1_上下文构建与语言实验: 文章/LLM/Qwen/实验/Agent/3.1_上下文构建与语言实验.md
-              - 3.2_工具沙箱实验: 文章/LLM/Qwen/实验/Agent/3.2_工具沙箱实验.md
-              - 3.3_Checkpoint任务恢复实验: 文章/LLM/Qwen/实验/Agent/3.3_Checkpoint任务恢复实验.md
-              - 3.4_统一工具输出与上下文预算实验: 文章/LLM/Qwen/实验/Agent/3.4_统一工具输出与上下文预算实验.md
-              - 3.5_记忆注入与上下文预算实验: 文章/LLM/Qwen/实验/Agent/3.5_记忆注入与上下文预算实验.md
-              - 3.6_任务模式路由与长链路升级实验: 文章/LLM/Qwen/实验/Agent/3.6_任务模式路由与长链路升级实验.md
-          - 2.1_vLLM安装与运行: 文章/LLM/Qwen/2.1_vLLM安装与运行.md
-      - 知识图谱: 文章/LLM/知识图谱/知识图谱.md
-  - 408:
-      - 数据结构概述: 文章/408/数据结构/数据结构概述.md
-  - Ideas:
-      - 文章/Ideas/index.md
-      - 个人方法论: 文章/Ideas/个人方法论.md
+  - 首页: index.md
+  - 笔记: 文章/index.md
+  - 专题: 专题/index.md
+  - 思考: 文章/Ideas/index.md
+  - 关于: about.md
