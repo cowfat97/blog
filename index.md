@@ -24,34 +24,6 @@ hide:
 {{ featured_notes }}
 
 <div class="section-heading" markdown>
-<span class="eyebrow">LEARNING PATHS</span>
-
-## 沿着一个主题读下去
-</div>
-
-<div class="grid cards topic-cards" markdown>
-
-- **01 / Java 后端**
-
-    从语言基础、集合与并发，到 JVM 和框架原理。
-
-    [进入阅读路线 →](专题/index.md#java)
-
-- **02 / RAG 与 Agent**
-
-    从文档处理和检索，到工具调用与智能体开发。
-
-    [进入阅读路线 →](专题/index.md#rag)
-
-- **03 / Qwen 与 vLLM**
-
-    模型使用、输出控制、推理部署与实验记录。
-
-    [进入阅读路线 →](专题/index.md#qwen)
-
-</div>
-
-<div class="section-heading" markdown>
 <span class="eyebrow">RECENTLY MAINTAINED</span>
 
 ## 最近维护
