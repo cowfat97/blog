@@ -426,17 +426,6 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        沿着一个主题读下去
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         最近维护
       
     </span>
@@ -5404,17 +5393,6 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        沿着一个主题读下去
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         最近维护
       
     </span>
@@ -5467,31 +5445,8 @@
 <div class="note-grid"><article class="note-card"><span class="eyebrow">LLM</span><h3><a href="%E6%96%87%E7%AB%A0/LLM/Agent/Agent/">Agent：工具、记忆与规划</a></h3><p>从 LLM 的能力边界出发，理解 Agent 为什么需要工具、记忆与规划。</p></article><article class="note-card"><span class="eyebrow">LLM</span><h3><a href="%E6%96%87%E7%AB%A0/LLM/Rag/RAG/">RAG：从文档到检索</a></h3><p>理解知识库问答的基本链路，以及文档处理、向量检索与生成之间的关系。</p></article><article class="note-card"><span class="eyebrow">Java</span><h3><a href="%E6%96%87%E7%AB%A0/Java/JVM/JVM%20%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/">JVM 内存结构</a></h3><p>梳理方法区、堆、栈、程序计数器和本地方法栈，建立内存结构的整体认识。</p></article></div>
 
 <div class="section-heading">
-<p><span class="eyebrow">LEARNING PATHS</span></p>
-<h2 id="_2">沿着一个主题读下去</h2>
-</div>
-<div class="grid cards topic-cards">
-<ul>
-<li>
-<p><strong>01 / Java 后端</strong></p>
-<p>从语言基础、集合与并发，到 JVM 和框架原理。</p>
-<p><a href="%E4%B8%93%E9%A2%98/#java">进入阅读路线 →</a></p>
-</li>
-<li>
-<p><strong>02 / RAG 与 Agent</strong></p>
-<p>从文档处理和检索，到工具调用与智能体开发。</p>
-<p><a href="%E4%B8%93%E9%A2%98/#rag">进入阅读路线 →</a></p>
-</li>
-<li>
-<p><strong>03 / Qwen 与 vLLM</strong></p>
-<p>模型使用、输出控制、推理部署与实验记录。</p>
-<p><a href="%E4%B8%93%E9%A2%98/#qwen">进入阅读路线 →</a></p>
-</li>
-</ul>
-</div>
-<div class="section-heading">
 <p><span class="eyebrow">RECENTLY MAINTAINED</span></p>
-<h2 id="_3">最近维护</h2>
+<h2 id="_2">最近维护</h2>
 <p>按 Git 中的笔记变更顺序展示，不代表首次发表时间。</p>
 </div>
 <div class="note-grid"><article class="note-card"><span class="eyebrow">LLM</span><h3><a href="%E6%96%87%E7%AB%A0/LLM/Qwen/%E5%AE%9E%E9%AA%8C/2.3_vLLM%E9%95%BF%E4%B8%8A%E4%B8%8B%E6%96%87%E6%80%A7%E8%83%BD%E5%AE%9E%E9%AA%8C/">vLLM 长上下文性能实验</a></h3><p>实验目的 验证上下文变长后，vLLM 的延迟、显存、KV Cache 和并发能力如何变化，并确定 4096 或 8192 哪个更适合作为默认 max-model-len 。 本实验不以“请求没有报错”为通过，而同时检查： 输入是否真的达到目标 Token 长度 请求在目标长度下能</p></article><article class="note-card"><span class="eyebrow">LLM</span><h3><a href="%E6%96%87%E7%AB%A0/LLM/Qwen/%E5%AE%9E%E9%AA%8C/Agent/3.1_%E4%B8%8A%E4%B8%8B%E6%96%87%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%AE%9E%E9%AA%8C/">Agent 上下文构建与语言实验</a></h3><p>实验目标 性能实验回答“长上下文能不能高效运行”，本实验回答： 在有限的上下文窗口里，应该选择哪些信息、按照什么结构交给模型？ 重点验证： 模型本轮实际看到了什么 完整历史是否一定比短上下文更准确 早期事实被裁剪后如何恢复 无关历史是否会污染回答 模型是否容易忽略上下文中部的信息</p></article><article class="note-card"><span class="eyebrow">LLM</span><h3><a href="%E6%96%87%E7%AB%A0/LLM/Qwen/%E5%AE%9E%E9%AA%8C/Agent/3.2_%E5%B7%A5%E5%85%B7%E6%B2%99%E7%AE%B1%E5%AE%9E%E9%AA%8C/">Agent 工具沙箱实验</a></h3><p>学习定位 本实验作为后续学习内容，暂不立即改造代码。 结构化输出只能约束模型生成的行动格式，不能保证工具调用安全。工具沙箱要解决的是： 即使模型选错工具、参数被污染或工具代码异常，也不能越过授权边界、破坏宿主环境或拖垮服务。 当前项目基线 当前链路： 用户输入 → Qwen3-4</p></article><article class="note-card"><span class="eyebrow">LLM</span><h3><a href="%E6%96%87%E7%AB%A0/LLM/Qwen/%E5%AE%9E%E9%AA%8C/Agent/3.3_Checkpoint%E4%BB%BB%E5%8A%A1%E6%81%A2%E5%A4%8D%E5%AE%9E%E9%AA%8C/">Agent Checkpoint 任务恢复实验</a></h3><p>学习定位 本实验研究长链路任务如何拆分、保存进度并从中断处恢复。当前只设计实验，不立即改造 vllm_chat.py 。 会话记忆：保存“用户和模型聊过什么” Checkpoint：保存“任务执行到哪里、哪些结果已验证、下一步是什么” 实验目标 单轮达到行动上限后保存进度，而不是</p></article></div>
