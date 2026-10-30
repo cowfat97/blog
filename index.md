@@ -9,8 +9,6 @@ hide:
 
 # how
 
-<div class="home-topics"><span>Java 后端</span><span>RAG 与 Agent</span><span>Qwen 与 vLLM</span></div>
-
 [浏览笔记 :material-arrow-right:](文章/index.md){ .md-button .md-button--primary }
 [了解我](about.md){ .md-button }
 
