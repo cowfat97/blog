@@ -2,7 +2,7 @@
 
 Java、数据库、中间件与大模型开发笔记。
 
-线上阅读：[cowfat97.github.io/notes](https://cowfat97.github.io/notes/)
+线上阅读：[cowfat97.github.io/blog](https://cowfat97.github.io/blog/)
 
 ## 内容入口
 

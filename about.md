@@ -26,4 +26,4 @@ hide:
 [GitHub :fontawesome-brands-github:](https://github.com/cowfat97){ .md-button .md-button--primary }
 [微信公众号 :material-wechat:](公众号.md){ .md-button }
 
-发现文章中的问题，也欢迎通过[仓库 Issues](https://github.com/cowfat97/notes/issues)反馈。
+发现文章中的问题，也欢迎通过[仓库 Issues](https://github.com/cowfat97/blog/issues)反馈。
