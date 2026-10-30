@@ -31,7 +31,7 @@ jobs:
       - name: Build site
         run: mkdocs build -f .mkdocs/mkdocs.yml
       - name: Verify built pages and assets
-        run: python .mkdocs/verify_site.py .site
+        run: python .mkdocs/verify_site.py ../site
       - name: Deploy to existing gh-pages branch
         if: github.event_name != 'pull_request'
         run: mkdocs gh-deploy -f .mkdocs/mkdocs.yml --force

@@ -21,9 +21,9 @@ uv pip install --python .venv/bin/python -r .mkdocs/requirements.txt
 .venv/bin/mkdocs serve -f .mkdocs/mkdocs.yml
 ```
 
-产物验证：`.venv/bin/python .mkdocs/verify_site.py .site`。
+产物验证：`.venv/bin/python .mkdocs/verify_site.py ../site`。
 
-构建：`.venv/bin/mkdocs build -f .mkdocs/mkdocs.yml`，产物位于 `.site/`。
+构建：`.venv/bin/mkdocs build -f .mkdocs/mkdocs.yml`，产物位于仓库外的 `../site/`。
 
 ## 写作与发布
 

@@ -1,7 +1,7 @@
 site_name: how 的博客
 site_description: Java 后端 & 大模型开发学习笔记
 site_author: cowfat97
-site_dir: ../.site
+site_dir: ../../site
 site_url: https://cowfat97.github.io/notes/
 docs_dir: ".."
 repo_url: https://github.com/cowfat97/notes

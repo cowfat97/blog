@@ -3,6 +3,7 @@ import importlib.util
 import unittest
 import json
 from tempfile import TemporaryDirectory
+from mkdocs.config import load_config
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.plugins import PluginCollection
 from mkdocs.structure.files import File, Files
@@ -14,6 +15,10 @@ spec.loader.exec_module(hooks)
 
 
 class PublicationTests(unittest.TestCase):
+    def test_default_config_builds_outside_content_directory(self):
+        config = load_config(config_file=str(Path(__file__).parents[1] / "mkdocs.yml"))
+        self.assertFalse(Path(config.site_dir).resolve().is_relative_to(Path(config.docs_dir).resolve()))
+
     def test_internal_files_never_publish(self):
         for path in ['.env', '.obsidian/app.json', 'CLAUDE.md', '文章/Java/CLAUDE.md',
                      'scripts/example.py', '.mkdocs/mkdocs.yml', '_components/config.json', 'Pic/secret.txt']:
