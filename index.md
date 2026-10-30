@@ -5,14 +5,9 @@ hide:
 ---
 
 <div class="home-intro" markdown>
-<div class="home-kicker">NOTES, EXPERIMENTS & IDEAS</div>
 <img src="Pic/avatar.jpeg" class="home-avatar" alt="how 的头像" width="104" height="104">
 
-# 你好，我是 how。
-
-<p class="home-tagline">在学习中理解，在实践中验证。</p>
-
-这里记录我学习 **Java 后端与大模型开发**的过程：从基础概念到工程实践，从一次实验到一点新的理解。也留下一些阅读与个人思考。
+# how
 
 <div class="home-topics"><span>Java 后端</span><span>RAG 与 Agent</span><span>Qwen 与 vLLM</span></div>
 
@@ -26,7 +21,6 @@ hide:
 
 ## 从这几篇开始
 
-一些适合进入这个笔记库的起点。
 </div>
 
 {{ featured_notes }}
@@ -70,8 +64,6 @@ hide:
 {{ recent_notes }}
 
 <div class="home-closing" markdown>
-
-**把零散的知识，慢慢连成自己的理解。**
 
 目前收录 {{ note_count }} 篇笔记。[浏览全部](文章/index.md) · [个人思考](文章/Ideas/index.md) · [GitHub](https://github.com/cowfat97) · [公众号](公众号.md)
 

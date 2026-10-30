@@ -1,6 +1,6 @@
 # how 的博客
 
-Java 后端与大模型开发的学习、实验与思考。
+Java、数据库、中间件与大模型开发笔记。
 
 线上阅读：[cowfat97.github.io/notes](https://cowfat97.github.io/notes/)
 

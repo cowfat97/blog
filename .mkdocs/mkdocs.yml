@@ -73,7 +73,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/cowfat97
       name: GitHub
-copyright: Copyright &copy; how · 学习、实验与思考
+copyright: Copyright &copy; how
 
 markdown_extensions:
   - md_in_html

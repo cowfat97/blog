@@ -9,7 +9,7 @@ hide:
 
 # 从一个问题，找到一篇笔记。
 
-这里收录 Java 后端、大模型开发与学习过程中的积累。可以搜索标题与正文，也可以[沿着专题阅读](../专题/index.md)。
+搜索标题与正文，或[沿着专题阅读](../专题/index.md)。
 
 <div id="notes-catalog" class="notes-catalog" aria-label="笔记检索">
   <form class="catalog-search" role="search">
