@@ -106,7 +106,7 @@
       if (!active) return;
       rows = data;
       const names = [...new Set(rows.map(row => row.category))];
-      const order = ['Java', 'LLM', '中间件', '数据库', '408', '软考', 'Ideas'];
+      const order = ['Java', 'LLM', '中间件', '数据库', '408', '软考', '思考'];
       const categories = ['', ...order.filter(name => names.includes(name)), ...names.filter(name => !order.includes(name))];
       if (!categories.includes(category)) category = '';
       for (const name of categories) {
